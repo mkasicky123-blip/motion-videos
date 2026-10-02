@@ -1,21 +1,11 @@
 import { AbsoluteFill, interpolate, interpolateColors, useCurrentFrame } from "remotion";
-import { colors, SCENES, TRANSITION } from "../theme";
+import { colors, SCENE_STARTS, TRANSITION } from "../theme";
 
-// Scene start frames in the full video, used to shift the glow colour per scene.
-const starts = (() => {
-  const out: number[] = [];
-  let t = 0;
-  for (const d of Object.values(SCENES)) {
-    out.push(t);
-    t += d - TRANSITION;
-  }
-  return out;
-})();
 const glow = [colors.red, colors.blue, colors.green, colors.blue, colors.yellow, colors.blue];
 
 export const Background: React.FC = () => {
   const frame = useCurrentFrame();
-  const color = interpolateColors(frame, starts.map((s) => s + TRANSITION), glow);
+  const color = interpolateColors(frame, SCENE_STARTS.map((s) => s + TRANSITION), glow);
   const drift = Math.sin(frame / 40) * 60;
 
   return (

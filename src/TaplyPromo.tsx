@@ -10,6 +10,7 @@ import { Hook } from "./scenes/Hook";
 import { Points } from "./scenes/Points";
 import { Price } from "./scenes/Price";
 import { TapScene } from "./scenes/TapScene";
+import { Soundtrack } from "./Soundtrack";
 import { SCENES, TRANSITION } from "./theme";
 
 const whip = springTiming({ config: { damping: 200 }, durationInFrames: TRANSITION });
@@ -20,6 +21,7 @@ export const TaplyPromo: React.FC = () => {
   return (
     <AbsoluteFill>
       <Background />
+      <Soundtrack />
       <TransitionSeries>
         <TransitionSeries.Sequence name="Hook" durationInFrames={SCENES.hook} premountFor={fps}>
           <Hook />

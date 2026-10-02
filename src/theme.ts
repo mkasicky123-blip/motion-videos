@@ -34,3 +34,17 @@ export const SCENES = {
 export const TOTAL =
   Object.values(SCENES).reduce((a, b) => a + b, 0) -
   (Object.keys(SCENES).length - 1) * TRANSITION;
+
+// Frame each scene starts at in the full video (its incoming transition begins here).
+export const SCENE_STARTS = (() => {
+  const out: number[] = [];
+  let t = 0;
+  for (const d of Object.values(SCENES)) {
+    out.push(t);
+    t += d - TRANSITION;
+  }
+  return out;
+})();
+
+// Frame (within the Tap scene) when the phone touches the card.
+export const TAP_FRAME = 46;

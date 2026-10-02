@@ -9,9 +9,9 @@ import { Check, Star } from "../components/Icons";
 import { Phone } from "../components/Phone";
 import { ProductCard } from "../components/ProductCard";
 import { w, Words } from "../components/Words";
-import { colors, fontFamily } from "../theme";
+import { colors, fontFamily, TAP_FRAME } from "../theme";
 
-const TAP = 46; // frame the phone touches the card
+const TAP = TAP_FRAME;
 const CONTACT = { x: 600, y: 1210 };
 const RING_COLORS = [colors.blue, colors.green, colors.yellow, colors.red];
 const REVIEW_TEXT = "Amazing coffee, lovely staff!";
