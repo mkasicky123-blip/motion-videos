@@ -1,14 +1,13 @@
 import {
   AbsoluteFill,
-  Img,
   interpolate,
   spring,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
 import { Check, Star } from "../components/Icons";
 import { Phone } from "../components/Phone";
+import { ProductCard } from "../components/ProductCard";
 import { w, Words } from "../components/Words";
 import { colors, fontFamily } from "../theme";
 
@@ -59,17 +58,16 @@ export const TapScene: React.FC = () => {
       </div>
 
       {/* The product card on the counter */}
-      <Img
-        src={staticFile("google-review.png")}
+      <ProductCard
+        file="google-review"
+        width={720}
+        blur={lift * 8}
         style={{
-          position: "absolute",
-          width: 840,
-          left: 120,
-          top: 990,
+          left: 180,
+          top: 960,
           scale: `${interpolate(cardIn, [0, 1], [0.7, 1]) * (1 + press * 0.02)}`,
           opacity: cardIn * interpolate(lift, [0, 1], [1, 0]),
           translate: `0px ${interpolate(cardIn, [0, 1], [300, 0]) + lift * 420}px`,
-          filter: `blur(${lift * 8}px)`,
         }}
       />
 

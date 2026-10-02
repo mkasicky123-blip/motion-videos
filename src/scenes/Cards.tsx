@@ -1,4 +1,5 @@
-import { AbsoluteFill, Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { ProductCard } from "../components/ProductCard";
 import { w, Words } from "../components/Words";
 import { colors, fontFamily } from "../theme";
 
@@ -35,20 +36,19 @@ export const Cards: React.FC = () => {
           const d = i - pos;
           const ad = Math.abs(d);
           return (
-            <Img
+            <ProductCard
               key={c.file}
-              src={staticFile(`${c.file}.png`)}
+              file={c.file}
+              width={720}
+              blur={Math.min(ad, 1.5) * 4}
               style={{
-                position: "absolute",
-                width: 820,
-                left: 130,
-                top: 620,
+                left: 180,
+                top: 560,
                 translate: `${d * 560}px ${ad * 40 + (1 - enter) * 600}px`,
                 scale: `${interpolate(ad, [0, 1, 2], [1, 0.7, 0.5], { extrapolateRight: "clamp" })}`,
                 rotate: `y ${-d * 32}deg`,
                 opacity: interpolate(ad, [0, 1, 2], [1, 0.55, 0], { extrapolateRight: "clamp" }) * enter,
                 zIndex: 10 - Math.round(ad * 2),
-                filter: `blur(${Math.min(ad, 1.5) * 4}px)`,
               }}
             />
           );
