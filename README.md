@@ -8,7 +8,7 @@ Promo videos built with [Remotion](https://www.remotion.dev).
 Rendered output: [`out/taply-promo.mp4`](out/taply-promo.mp4).
 
 - `src/TaplyPromo.tsx` stitches the scenes with transitions; each scene lives in `src/scenes/` and is also registered on its own under *Scenes* in the Studio.
-- Product shots are in `public/`. `public/cutouts/` holds the same shots with the white background removed (regenerate with `python3 scripts/cutout.py`, needs pillow, numpy and scipy).
+- Product shots (transparent PNGs) are in `public/`.
 - Inter is bundled in `public/fonts/` so rendering works offline.
 
 ```bash

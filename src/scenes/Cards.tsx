@@ -37,7 +37,7 @@ export const Cards: React.FC = () => {
           return (
             <Img
               key={c.file}
-              src={staticFile(`cutouts/${c.file}.png`)}
+              src={staticFile(`${c.file}.png`)}
               style={{
                 position: "absolute",
                 width: 820,

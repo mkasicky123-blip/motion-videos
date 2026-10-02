@@ -60,7 +60,7 @@ export const TapScene: React.FC = () => {
 
       {/* The product card on the counter */}
       <Img
-        src={staticFile("cutouts/google-review.png")}
+        src={staticFile("google-review.png")}
         style={{
           position: "absolute",
           width: 840,
