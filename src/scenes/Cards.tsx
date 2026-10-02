@@ -28,7 +28,7 @@ export const Cards: React.FC = () => {
   return (
     <AbsoluteFill style={{ fontFamily }}>
       <div style={{ position: "absolute", top: 230, width: "100%" }}>
-        <Words words={[...w("5 designs."), ...w("Pick yours.", colors.yellow)]} delay={2} fontSize={100} weight={900} />
+        <Words words={[...w("5 designs."), ...w("Pick yours.", colors.yellow)]} delay={2} fontSize={88} weight={900} />
       </div>
 
       <AbsoluteFill style={{ perspective: 1800 }}>
