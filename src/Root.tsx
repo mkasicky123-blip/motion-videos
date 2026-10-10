@@ -10,6 +10,8 @@ import { TaplyPromo } from "./TaplyPromo";
 import { TIKTOK1_FRAMES, TikTok1 } from "./tiktok/TikTok1";
 import { TIKTOK2_FRAMES, TikTok2 } from "./tiktok/TikTok2";
 import { TIKTOK3_FRAMES, TikTok3 } from "./tiktok/TikTok3";
+import { framesFor } from "./tiktok/voice/timing";
+import { TikTokVoice } from "./tiktok/voice/TikTokVoice";
 import { FPS, HEIGHT, SCENES, TOTAL, WIDTH } from "./theme";
 
 // Standalone scene previews get the same backdrop as the full video.
@@ -36,6 +38,8 @@ export const RemotionRoot: React.FC = () => {
         <Composition id="TikTok1" component={TikTok1} durationInFrames={TIKTOK1_FRAMES} {...video} />
         <Composition id="TikTok2" component={TikTok2} durationInFrames={TIKTOK2_FRAMES} {...video} />
         <Composition id="TikTok3" component={TikTok3} durationInFrames={TIKTOK3_FRAMES} {...video} />
+        <Composition id="TikTokVoice1" component={TikTokVoice} durationInFrames={framesFor(1)} defaultProps={{ version: 1 as const }} {...video} />
+        <Composition id="TikTokVoice2" component={TikTokVoice} durationInFrames={framesFor(2)} defaultProps={{ version: 2 as const }} {...video} />
       </Folder>
       <Folder name="Scenes">
         <Composition id="Hook" component={HookPreview} durationInFrames={SCENES.hook} {...video} />

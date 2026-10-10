@@ -243,7 +243,16 @@ def track():
 
 
 if __name__ == "__main__":
+    import sys
+
     OUT.mkdir(parents=True, exist_ok=True)
+    # `make_audio.py music-voice 26 0.5` writes only a music bed named music-voice.wav,
+    # 26 s long, with the drop at 0.5 s.
+    if len(sys.argv) == 4:
+        LENGTH, TAP_TIME = float(sys.argv[2]), float(sys.argv[3])
+        GRID0 = TAP_TIME - 8 * BEAT
+        save(sys.argv[1], track())
+        sys.exit()
     save("tap", tap())
     save("whoosh", whoosh())
     save("ding", ding())
